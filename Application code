@@ -1,0 +1,572 @@
+package example;
+
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.LayoutManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+public class exam {
+  private JFrame frame;
+  
+  private JTextField textField;
+  
+  Double first;
+  
+  Double second;
+  
+  Double result;
+  
+  Double power;
+  
+  String operation;
+  
+  String answer;
+  
+  private final ButtonGroup buttonGroup = new ButtonGroup();
+  
+  public static void main(String[] args) {
+    EventQueue.invokeLater(new Runnable() {
+          public void run() {
+            try {
+              exam window = new exam();
+              window.frame.setVisible(true);
+            } catch (Exception e) {
+              e.printStackTrace();
+            } 
+          }
+        });
+  }
+  
+  public exam() {
+    initialize();
+  }
+  
+  private void initialize() {
+    this.frame = new JFrame();
+    this.frame.setBounds(100, 100, 369, 455);
+    this.frame.setDefaultCloseOperation(3);
+    this.frame.getContentPane().setLayout((LayoutManager)null);
+    this.textField = new JTextField();
+    this.textField.setBounds(10, 46, 336, 39);
+    this.frame.getContentPane().add(this.textField);
+    this.textField.setColumns(10);
+    final JButton btn0 = new JButton("0\r\n");
+    btn0.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn0.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn0.setFont(new Font("Tahoma", 1, 16));
+    btn0.setBounds(78, 370, 64, 43);
+    this.frame.getContentPane().add(btn0);
+    final JButton btn1 = new JButton("1");
+    btn1.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn1.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn1.setFont(new Font("Tahoma", 1, 16));
+    btn1.setBounds(78, 326, 64, 43);
+    this.frame.getContentPane().add(btn1);
+    final JButton btn4 = new JButton("4");
+    btn4.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn4.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    final JButton btnsin = new JButton("Sin");
+    btnsin.setFont(new Font("Tahoma", 1, 12));
+    btnsin.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.sin(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnsin.setBounds(146, 121, 64, 43);
+    this.frame.getContentPane().add(btnsin);
+    final JButton btnCos = new JButton("Cos");
+    btnCos.setFont(new Font("Tahoma", 1, 12));
+    btnCos.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.cos(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnCos.setBounds(212, 121, 64, 43);
+    this.frame.getContentPane().add(btnCos);
+    final JButton btnTan = new JButton("Tan");
+    btnTan.setFont(new Font("Tahoma", 1, 12));
+    btnTan.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.tan(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnTan.setBounds(282, 121, 64, 43);
+    this.frame.getContentPane().add(btnTan);
+    final JButton btnx = new JButton("1/x");
+    btnx.setFont(new Font("Tahoma", 1, 12));
+    btnx.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = 1.0D / Double.parseDouble(exam.this.textField.getText());
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnx.setBounds(10, 160, 64, 43);
+    this.frame.getContentPane().add(btnx);
+    final JButton btnLog = new JButton("Log");
+    btnLog.setFont(new Font("Tahoma", 1, 12));
+    btnLog.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.log(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnLog.setBounds(78, 160, 64, 43);
+    this.frame.getContentPane().add(btnLog);
+    final JButton btnSinh = new JButton("Sinh");
+    btnSinh.setFont(new Font("Tahoma", 1, 12));
+    btnSinh.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.sinh(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnSinh.setBounds(146, 160, 64, 43);
+    this.frame.getContentPane().add(btnSinh);
+    final JButton btnCosh = new JButton("Cosh");
+    btnCosh.setFont(new Font("Tahoma", 1, 12));
+    btnCosh.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.cosh(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnCosh.setBounds(212, 160, 64, 43);
+    this.frame.getContentPane().add(btnCosh);
+    final JButton btnTanh = new JButton("Tanh");
+    btnTanh.setFont(new Font("Tahoma", 1, 12));
+    btnTanh.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.tanh(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnTanh.setBounds(282, 160, 64, 43);
+    this.frame.getContentPane().add(btnTanh);
+    final JButton btnxy = new JButton("X^Y");
+    btnxy.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.power = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.operation = "^";
+          }
+        });
+    btnxy.setFont(new Font("Tahoma", 1, 12));
+    btnxy.setBounds(10, 203, 64, 43);
+    this.frame.getContentPane().add(btnxy);
+    final JButton btnx3 = new JButton("X^3");
+    btnx3.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double number = Double.parseDouble(exam.this.textField.getText());
+            double sqr = number * number * number;
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + sqr);
+          }
+        });
+    btnx3.setFont(new Font("Tahoma", 1, 12));
+    btnx3.setBounds(10, 244, 64, 43);
+    this.frame.getContentPane().add(btnx3);
+    final JButton btnx2 = new JButton("X^2");
+    btnx2.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double number = Double.parseDouble(exam.this.textField.getText());
+            double sqr = number * number;
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + sqr);
+          }
+        });
+    btnx2.setFont(new Font("Tahoma", 1, 12));
+    btnx2.setBounds(10, 286, 64, 43);
+    this.frame.getContentPane().add(btnx2);
+    final JButton btnN = new JButton("n!");
+    btnN.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            int fact = 1;
+            int number = Integer.parseInt(exam.this.textField.getText());
+            if (number > 0)
+              for (int i = number; i >= 1; i--)
+                fact *= i;  
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + fact);
+          }
+        });
+    btnN.setFont(new Font("Tahoma", 1, 12));
+    btnN.setBounds(10, 326, 64, 43);
+    this.frame.getContentPane().add(btnN);
+    final JButton btnpmd = new JButton("+/-");
+    btnpmd.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double x = Double.parseDouble(String.valueOf(exam.this.textField.getText()));
+            x *= -1.0D;
+            exam.this.textField.setText(String.valueOf(x));
+          }
+        });
+    btnpmd.setFont(new Font("Tahoma", 1, 12));
+    btnpmd.setBounds(10, 370, 64, 43);
+    this.frame.getContentPane().add(btnpmd);
+    btn4.setFont(new Font("Tahoma", 1, 16));
+    btn4.setBounds(78, 286, 64, 43);
+    this.frame.getContentPane().add(btn4);
+    final JButton btn7 = new JButton("7");
+    btn7.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn7.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn7.setFont(new Font("Tahoma", 1, 16));
+    btn7.setBounds(78, 244, 64, 43);
+    this.frame.getContentPane().add(btn7);
+    final JButton btn8 = new JButton("8");
+    btn8.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn8.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn8.setFont(new Font("Tahoma", 1, 16));
+    btn8.setBounds(146, 246, 64, 43);
+    this.frame.getContentPane().add(btn8);
+    final JButton btn5 = new JButton("5");
+    btn5.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn5.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    final JButton btnEx = new JButton("e^x");
+    btnEx.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double trigno = Math.exp(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + trigno);
+          }
+        });
+    btnEx.setFont(new Font("Tahoma", 1, 12));
+    btnEx.setBounds(78, 121, 64, 43);
+    this.frame.getContentPane().add(btnEx);
+    btn5.setFont(new Font("Tahoma", 1, 16));
+    btn5.setBounds(146, 288, 64, 41);
+    this.frame.getContentPane().add(btn5);
+    final JButton btn2 = new JButton("2");
+    btn2.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn2.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn2.setFont(new Font("Tahoma", 1, 16));
+    btn2.setBounds(146, 328, 64, 41);
+    this.frame.getContentPane().add(btn2);
+    final JButton btn00 = new JButton("00");
+    btn00.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn00.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn00.setFont(new Font("Tahoma", 1, 16));
+    btn00.setBounds(146, 370, 64, 41);
+    this.frame.getContentPane().add(btn00);
+    final JButton btn9 = new JButton("9");
+    btn9.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn9.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn9.setFont(new Font("Tahoma", 1, 16));
+    btn9.setBounds(212, 246, 64, 43);
+    this.frame.getContentPane().add(btn9);
+    final JButton btn6 = new JButton("6");
+    btn6.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn6.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn6.setFont(new Font("Tahoma", 1, 16));
+    btn6.setBounds(212, 288, 64, 41);
+    this.frame.getContentPane().add(btn6);
+    final JButton btnR = new JButton(");
+    btnR.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            double sqr = Math.sqrt(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.textField.setText(String.valueOf(exam.this.textField.getText()) + sqr);
+          }
+        });
+    btnR.setFont(new Font("Tahoma", 1, 12));
+    btnR.setBounds(10, 121, 64, 43);
+    this.frame.getContentPane().add(btnR);
+    final JButton btn3 = new JButton("3");
+    btn3.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btn3.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btn3.setFont(new Font("Tahoma", 1, 16));
+    btn3.setBounds(212, 328, 64, 41);
+    this.frame.getContentPane().add(btn3);
+    final JButton btnequal = new JButton("=");
+    btnequal.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.second = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            if (exam.this.operation == "+") 
+            {
+              exam.this.result = Double.valueOf(exam.this.first.doubleValue() + exam.this.second.doubleValue());
+              exam.this.answer = String.format("%.2f", new Object[] { this.this$0.result });
+              exam.this.textField.setText(exam.this.answer);
+            } 
+            else if (exam.this.operation == "-") 
+            {
+              exam.this.result = Double.valueOf(exam.this.first.doubleValue() - exam.this.second.doubleValue());
+              exam.this.answer = String.format("%.2f", new Object[] { this.this$0.result });
+              exam.this.textField.setText(exam.this.answer);
+            }
+            else if (exam.this.operation == "*") 
+            {
+              exam.this.result = Double.valueOf(exam.this.first.doubleValue() * exam.this.second.doubleValue());
+              exam.this.answer = String.format("%.2f", new Object[] { this.this$0.result });
+              exam.this.textField.setText(exam.this.answer);
+            }
+            else if (exam.this.operation == "/")
+            {
+              exam.this.result = Double.valueOf(exam.this.first.doubleValue() / exam.this.second.doubleValue());
+              exam.this.answer = String.format("%.2f", new Object[] { this.this$0.result });
+              exam.this.textField.setText(exam.this.answer);
+            }
+            else if (exam.this.operation == "%") 
+            {
+              exam.this.result = Double.valueOf(exam.this.first.doubleValue() % exam.this.second.doubleValue());
+              exam.this.answer = String.format("%.2f", new Object[] { this.this$0.result });
+              exam.this.textField.setText(exam.this.answer);
+            }
+            else if (exam.this.operation == "^") 
+            {
+              double res = 1.0D;
+              for (int i = 0; i < exam.this.second.doubleValue(); i++)
+                res = exam.this.power.doubleValue() * res; 
+              exam.this.answer = String.format("%.2f", new Object[] { Double.valueOf(res) });
+              exam.this.textField.setText(exam.this.answer);
+            } 
+          }
+        });
+    btnequal.setFont(new Font("Tahoma", 1, 16));
+    btnequal.setBounds(282, 368, 64, 43);
+    this.frame.getContentPane().add(btnequal);
+    final JButton btnplus = new JButton("+");
+    btnplus.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.first = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.operation = "+";
+          }
+        });
+    btnplus.setFont(new Font("Tahoma", 1, 16));
+    btnplus.setBounds(282, 326, 64, 43);
+    this.frame.getContentPane().add(btnplus);
+    final JButton btnminus = new JButton("-");
+    btnminus.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.first = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.operation = "-";
+          }
+        });
+    btnminus.setFont(new Font("Tahoma", 1, 17));
+    btnminus.setBounds(282, 287, 64, 39);
+    this.frame.getContentPane().add(btnminus);
+    final JButton btnmultiply = new JButton("*");
+    btnmultiply.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.first = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.operation = "*";
+          }
+        });
+    btnmultiply.setFont(new Font("Tahoma", 1, 16));
+    btnmultiply.setBounds(282, 205, 64, 39);
+    this.frame.getContentPane().add(btnmultiply);
+    final JButton btndivide = new JButton("/");
+    btndivide.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.first = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.operation = "/";
+          }
+        });
+    btndivide.setFont(new Font("Tahoma", 1, 15));
+    btndivide.setBounds(282, 246, 64, 39);
+    this.frame.getContentPane().add(btndivide);
+    final JButton btnspace = new JButton(");
+    btnspace.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String backspace = null;
+            if (exam.this.textField.getText().length() > 0) {
+              StringBuilder str = new StringBuilder(exam.this.textField.getText());
+              str.deleteCharAt(exam.this.textField.getText().length() - 1);
+              backspace = str.toString();
+              exam.this.textField.setText(backspace);
+            } 
+          }
+        });
+    btnspace.setFont(new Font("Wingdings", 0, 14));
+    btnspace.setBounds(78, 204, 64, 42);
+    this.frame.getContentPane().add(btnspace);
+    final JButton btnclear = new JButton("C");
+    btnclear.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.textField.setText((String)null);
+          }
+        });
+    btnclear.setFont(new Font("Tahoma", 1, 14));
+    btnclear.setBounds(146, 203, 64, 43);
+    this.frame.getContentPane().add(btnclear);
+    final JButton btndot = new JButton(".");
+    btndot.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            String number = String.valueOf(exam.this.textField.getText()) + btndot.getText();
+            exam.this.textField.setText(number);
+          }
+        });
+    btndot.setFont(new Font("Tahoma", 1, 16));
+    btndot.setBounds(212, 370, 64, 41);
+    this.frame.getContentPane().add(btndot);
+    final JButton btnrem = new JButton("%");
+    btnrem.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            exam.this.first = Double.valueOf(Double.parseDouble(exam.this.textField.getText()));
+            exam.this.textField.setText("");
+            exam.this.operation = "%";
+          }
+        });
+    btnrem.setFont(new Font("Tahoma", 1, 15));
+    btnrem.setBounds(212, 201, 64, 45);
+    this.frame.getContentPane().add(btnrem);
+    JLabel lblNewLabel = new JLabel("SCIENTIFIC CALCULATOR");
+    lblNewLabel.setBackground(new Color(135, 206, 235));
+    lblNewLabel.setFont(new Font("Times New Roman", 1, 20));
+    lblNewLabel.setBounds(49, 11, 274, 24);
+    this.frame.getContentPane().add(lblNewLabel);
+    JRadioButton rdbtnNewRadioButton = new JRadioButton("ON");
+    rdbtnNewRadioButton.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            btn1.setEnabled(true);
+            btn2.setEnabled(true);
+            btn3.setEnabled(true);
+            btn4.setEnabled(true);
+            btn5.setEnabled(true);
+            btn6.setEnabled(true);
+            btn7.setEnabled(true);
+            btn8.setEnabled(true);
+            btn9.setEnabled(true);
+            btn0.setEnabled(true);
+            btn00.setEnabled(true);
+            btnplus.setEnabled(true);
+            btnminus.setEnabled(true);
+            btndivide.setEnabled(true);
+            btnmultiply.setEnabled(true);
+            btnrem.setEnabled(true);
+            btndot.setEnabled(true);
+            btnequal.setEnabled(true);
+            btnR.setEnabled(true);
+            btnEx.setEnabled(true);
+            btnsin.setEnabled(true);
+            btnCos.setEnabled(true);
+            btnTan.setEnabled(true);
+            btnSinh.setEnabled(true);
+            btnCosh.setEnabled(true);
+            btnTanh.setEnabled(true);
+            btnx.setEnabled(true);
+            btnxy.setEnabled(true);
+            btnx2.setEnabled(true);
+            btnx3.setEnabled(true);
+            btnpmd.setEnabled(true);
+            btnN.setEnabled(true);
+            btnLog.setEnabled(true);
+            btnspace.setEnabled(true);
+            btnclear.setEnabled(true);
+          }
+        });
+    this.buttonGroup.add(rdbtnNewRadioButton);
+    rdbtnNewRadioButton.setFont(new Font("Tahoma", 1, 10));
+    rdbtnNewRadioButton.setBounds(10, 86, 47, 23);
+    this.frame.getContentPane().add(rdbtnNewRadioButton);
+    JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("OFF");
+    rdbtnNewRadioButton_1.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            btn1.setEnabled(false);
+            btn2.setEnabled(false);
+            btn3.setEnabled(false);
+            btn4.setEnabled(false);
+            btn5.setEnabled(false);
+            btn6.setEnabled(false);
+            btn7.setEnabled(false);
+            btn8.setEnabled(false);
+            btn9.setEnabled(false);
+            btn0.setEnabled(false);
+            btn00.setEnabled(false);
+            btnplus.setEnabled(false);
+            btnminus.setEnabled(false);
+            btndivide.setEnabled(false);
+            btnmultiply.setEnabled(false);
+            btnrem.setEnabled(false);
+            btndot.setEnabled(false);
+            btnequal.setEnabled(false);
+            btnR.setEnabled(false);
+            btnEx.setEnabled(false);
+            btnsin.setEnabled(false);
+            btnCos.setEnabled(false);
+            btnTan.setEnabled(false);
+            btnSinh.setEnabled(false);
+            btnCosh.setEnabled(false);
+            btnTanh.setEnabled(false);
+            btnx.setEnabled(false);
+            btnxy.setEnabled(false);
+            btnx2.setEnabled(false);
+            btnx3.setEnabled(false);
+            btnpmd.setEnabled(false);
+            btnN.setEnabled(false);
+            btnLog.setEnabled(false);
+            btnspace.setEnabled(false);
+            btnclear.setEnabled(false);
+          }
+        });
+    this.buttonGroup.add(rdbtnNewRadioButton_1);
+    rdbtnNewRadioButton_1.setFont(new Font("Tahoma", 1, 10));
+    rdbtnNewRadioButton_1.setBounds(55, 86, 53, 23);
+    this.frame.getContentPane().add(rdbtnNewRadioButton_1);
+  }
+}
